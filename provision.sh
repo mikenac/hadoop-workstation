@@ -159,6 +159,7 @@ sudo systemctl start mysqld
 sudo yum -y install mysql-connector-java
 sudo ln -s /usr/share/java/mysql-connector-java.jar $HIVE_HOME/lib/mysql-connector-java.jar
 
+echo "Creating metastore"
 # create metastore database and users. Notice the user cannot change schema.
 SQL="
 CREATE DATABASE IF NOT EXISTS 'metastore';

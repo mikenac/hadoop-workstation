@@ -1,0 +1,4 @@
+#!/bin/bash
+
+USERNAME=<user>
+PASSWORD=<pwd>

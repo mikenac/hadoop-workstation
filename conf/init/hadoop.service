@@ -1,0 +1,21 @@
+[Unit]
+Description=Hadoop Pseudo DFS (NameServer, DataNode)
+After=syslog.target network.target remote-fs.target nss-lookup.target network-online.target
+Requires=network-online.target
+
+[Service]
+ExecStart=/usr/lib/hadoop/sbin/start-dfs.sh
+ExecStop=/usr/lib/hadoop/sbin/stop-dfs.sh
+WorkingDirectory=/usr/lib/hadoop
+Environment=JAVA_HOME=/usr/lib/jvm/java
+ENvironment=HADOOP_HOME=/usr/lib/hadoop
+User=hdfs
+Group=hdfs
+Type=forking
+TimeoutStartSec=2min
+Restart=on-failure
+RestartSec=30s
+PIDFile=/tmp/hadoop-hdfs-namenode.pid
+
+[Install]
+WantedBy=multi-user.target
